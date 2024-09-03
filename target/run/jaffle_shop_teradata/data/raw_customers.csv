@@ -1,0 +1,14 @@
+
+    
+    
+    CREATE  TABLE "demo_user"."raw_customers"
+    
+    ("id" INTEGER,"first_name" LONG VARCHAR,"last_name" LONG VARCHAR,"email" LONG VARCHAR)
+    ;
+
+  ;
+    -- dbt seed --
+    insert into "demo_user"."raw_customers" ("id", "first_name", "last_name", "email") values
+                (?,?,?,?)
+        
+  

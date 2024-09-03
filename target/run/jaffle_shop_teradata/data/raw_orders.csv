@@ -1,0 +1,14 @@
+
+    
+    
+    CREATE  TABLE "demo_user"."raw_orders"
+    
+    ("id" INTEGER,"user_id" INTEGER,"order_date" DATE,"status" LONG VARCHAR)
+    ;
+
+  ;
+    -- dbt seed --
+    insert into "demo_user"."raw_orders" ("id", "user_id", "order_date", "status") values
+                (?,?,?,?)
+        
+  

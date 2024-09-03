@@ -1,0 +1,14 @@
+
+    
+    
+    CREATE  TABLE "demo_user"."raw_payments"
+    
+    ("id" INTEGER,"order_id" INTEGER,"payment_method" LONG VARCHAR,"amount" INTEGER)
+    ;
+
+  ;
+    -- dbt seed --
+    insert into "demo_user"."raw_payments" ("id", "order_id", "payment_method", "amount") values
+                (?,?,?,?)
+        
+  
