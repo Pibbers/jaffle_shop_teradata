@@ -31,12 +31,12 @@ We illustrate [how we structure a project](#project-structure) according to Tera
 
 Each pattern is illustrated with a simplified code boilerplate, additionally we propose macros automating (most of) the model generation for common patterns.
 
-- [Staging](#pattern:-staging)
-- [Source Image](#pattern:-source-image)
-- [Surrogate key management](#pattern:surrogate-key-management)
-- [Light integration](#pattern:light-integration)
-- [History management](#pattern:history-management)
-- [Access layer](#pattern:access-layer)
+- [Staging](#pattern-staging)
+- [Source Image](#pattern-source-image)
+- [Surrogate key management](#pattern-surrogate-key-management)
+- [Light integration](#pattern-light-integration)
+- [History management](#pattern-history-management)
+- [Access layer](#pattern-access-layer)
 
 ## What is the jaffle shop project
 
@@ -76,15 +76,15 @@ jaffle_shop_teradata:
 ```
 
 ### Get this project, dbt and dependencies
-**TL;DR (Linux/Mac)**
+**TL;DR (Windows)**
 ```
-git clone https://github.com/xxxx/jaffle_shop_teradata.git
+git clone https://github.com/Teradata/jaffle_shop_teradata.git
 cd jaffle_shop_teradata
-python3 -m venv venv
-source venv/bin/activate
-python3 -m pip install --upgrade pip
-python3 -m pip install -r requirements.txt
-source venv/bin/activate
+python -m venv venv
+venv\Scripts\activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+venv\Scripts\activate
 ```
 
 ### Run this project
