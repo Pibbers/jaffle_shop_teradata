@@ -4,10 +4,7 @@
 --    {{ log("**************** source: " ~ source)  }}
 --    {{ log("**************** unique_key: " ~ unique_key)  }}
 --    {{ log("**************** valid_period: " ~ valid_period)  }}
---    {{ log("**************** valid_from: " ~ valid_from)  }}
---    {{ log("**************** valid_to: " ~ valid_to)  }}
 --    {{ log("**************** use_valid_to_time: " ~ use_valid_to_time)  }}
---    {{ log("**************** history_column_in_target: " ~ history_column_in_target)  }}
 --    {{ log("**************** resolve_conflicts: " ~ resolve_conflicts)  }}
     {% if unique_key is string %}
         {% set unique_key = [unique_key] %}

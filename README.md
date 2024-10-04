@@ -76,7 +76,20 @@ jaffle_shop_teradata:
 ```
 
 ### Get this project, dbt and dependencies
-**TL;DR (Windows)**
+**TL;DR**
+
+On Linux/Mac:
+```
+git clone https://github.com/Teradata/jaffle_shop_teradata.git
+cd jaffle_shop_teradata
+python -m venv venv
+source venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+source venv/bin/activate
+```
+
+On Windows
 ```
 git clone https://github.com/Teradata/jaffle_shop_teradata.git
 cd jaffle_shop_teradata
