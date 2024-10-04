@@ -1,22 +1,6 @@
 
-   
-  
+   insert into "demo_user"."key_customer" ("customer_key", "customer_nk", "domain_cd", "created_ts")
+        select "customer_key", "customer_nk", "domain_cd", "created_ts"
+        from "demo_user"."key_customer__dbt_tmp"
     
-    
 
-    INSERT INTO "demo_user"."key_customer"
-          
-
-
-
---Create the surrogate key table with default members if it doesn't exist
-select
-    -1 (integer) customer_key
-    ,'UNKNOWN' (varchar(10000)) customer_nk
-    ,'' (char(100)) domain_cd
-    ,current_timestamp created_ts
-from (sel 1 a) dummy
-    ;
-  
-
-  

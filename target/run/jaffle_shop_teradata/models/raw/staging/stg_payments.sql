@@ -6,6 +6,6 @@
     locking row for access
 select
 source.*
-,'2024-09-03 09:36:20.583062+00:00' (timestamp) last_update_ts
+,'2024-10-04 14:41:23.657082+00:00' (timestamp) last_update_ts
 from  "demo_user"."raw_payments" source
 
