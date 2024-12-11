@@ -1,7 +1,0 @@
-
-    truncate table "demo_user"."raw_orders";
-    -- dbt seed --
-    insert into "demo_user"."raw_orders" ("id", "user_id", "order_date", "status") values
-                (?,?,?,?)
-        
-  
