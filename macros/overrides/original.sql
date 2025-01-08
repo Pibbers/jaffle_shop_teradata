@@ -1,5 +1,6 @@
-{% macro teradata__get_incremental_valid_history_sql_alt(target, source, unique_key, valid_period, valid_from, valid_to, use_valid_to_time, history_column_in_target, resolve_conflicts) -%}
---    {{ log("**************** in REMI'S teradata__get_incremental_valid_history_sql macro")  }}
+{% macro teradata__get_incremental_valid_history_sql(target, source, unique_key, valid_period, use_valid_to_time, resolve_conflicts) -%}
+{{ debug()}}
+--    {{ log("**************** in teradata__get_incremental_valid_history_sql macro")  }}
 --    {{ log("**************** target: " ~ target)  }}
 --    {{ log("**************** source: " ~ source)  }}
 --    {{ log("**************** unique_key: " ~ unique_key)  }}
@@ -10,7 +11,7 @@
         {% set unique_key = [unique_key] %}
     {% endif %}
 
-    {%- set exclude_columns = unique_key + [valid_from, valid_period] -%}
+    {%- set exclude_columns = unique_key + [valid_period] -%}
 
     {%- set source_columns = adapter.get_columns_in_relation(source) -%}
 --    {{ log("**************** source_columns: " ~ source_columns)  }}
@@ -204,6 +205,7 @@
                 (sel 1 from {{ staging_tables[2] }} s where {{ join_condition }} and s.{{ valid_period }} overlaps t.{{ valid_period }});
                 ins  {{ target }} ({{ column_list }}) sel {{ column_list }} from {{ staging_tables[2] }};
             {% endcall %}
+            {{debug()}}
             {{ drop_staging_tables_for_valid_history(staging_tables) }}
         {% else %}
             {% set error_msg= "Failed" %}

@@ -2,4 +2,4 @@ locking row for access
 select
     source.*,
     current_timestamp last_update_ts
-from "demo_user"."raw_orders" source
+from "jaffle_shop"."raw_orders" source

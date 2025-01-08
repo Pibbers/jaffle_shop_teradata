@@ -11,4 +11,4 @@ sel
   payment_method,
   --`amount` is currently stored in cents, so we convert it to dollars
   amount / 100 as amount_usd
-  from "demo_user"."sim_payments" s
+  from "jaffle_shop"."sim_payments" s

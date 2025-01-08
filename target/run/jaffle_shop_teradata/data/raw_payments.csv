@@ -1,7 +1,14 @@
 
-    truncate table "demo_user"."raw_payments";
+    
+    
+    CREATE  TABLE "jaffle_shop"."raw_payments"
+    
+    ("id" INTEGER,"order_id" INTEGER,"payment_method" LONG VARCHAR,"amount" INTEGER)
+    ;
+
+  ;
     -- dbt seed --
-    insert into "demo_user"."raw_payments" ("id", "order_id", "payment_method", "amount") values
+    insert into "jaffle_shop"."raw_payments" ("id", "order_id", "payment_method", "amount") values
                 (?,?,?,?)
         
   

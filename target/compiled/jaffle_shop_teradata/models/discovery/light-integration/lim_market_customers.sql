@@ -2,9 +2,7 @@
   Build a light integrated modeled layer from source image 
   for entity `market_customers`, performing: 
   - Data domain aligments (eg. using standard data types, units conversions, codes standardization...)
-*/
-
-select
+*/select
 spend,
 nearby5,
 nearby10,

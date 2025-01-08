@@ -2,7 +2,7 @@
   
 
   
-  REPLACE VIEW "demo_user"."stg_market_customers__dbt_tmp" AS
+  REPLACE VIEW "jaffle_shop"."stg_market_customers__dbt_tmp" AS
     
 
 

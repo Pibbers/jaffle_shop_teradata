@@ -2,7 +2,7 @@
   
 
   
-  REPLACE VIEW "demo_user"."lim_market_competitors__dbt_tmp" AS
+  REPLACE VIEW "jaffle_shop"."lim_market_competitors__dbt_tmp" AS
     /*
   Build a light integrated modeled layer from source image 
   for entity `market_competitors`, performing: 
@@ -10,5 +10,5 @@
 */
 
 select new ST_GEOMETRY(ptLocWkt) competitor_location_pt
-from "demo_user"."stg_market_customers" s
+from "jaffle_shop"."stg_market_customers" s
 

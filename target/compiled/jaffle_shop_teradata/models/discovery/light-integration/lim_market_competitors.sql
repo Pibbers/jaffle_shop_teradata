@@ -5,4 +5,4 @@
 */
 
 select new ST_GEOMETRY(ptLocWkt) competitor_location_pt
-from "demo_user"."stg_market_customers" s
+from "jaffle_shop"."stg_market_customers" s

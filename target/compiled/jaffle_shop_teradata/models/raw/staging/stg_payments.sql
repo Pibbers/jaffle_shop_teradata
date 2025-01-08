@@ -1,5 +1,5 @@
 locking row for access
 select
 source.*
-,'2024-10-04 14:41:23.657082+00:00' (timestamp) last_update_ts
-from  "demo_user"."raw_payments" source
+,'2025-01-08 15:12:10.929274+00:00' (timestamp) last_update_ts
+from  "jaffle_shop"."raw_payments" source

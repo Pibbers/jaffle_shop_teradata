@@ -2,18 +2,18 @@
   
 
   
-  REPLACE VIEW "demo_user"."fct_orders__dbt_tmp" AS
+  REPLACE VIEW "jaffle_shop"."fct_orders__dbt_tmp" AS
     
 
 with orders as (
 
-    select * from "demo_user"."lim_orders"
+    select * from "jaffle_shop"."lim_orders"
 
 ),
 
 order_payments as (
 
-    select * from "demo_user"."order_payments"
+    select * from "jaffle_shop"."order_payments"
 
 ),
 

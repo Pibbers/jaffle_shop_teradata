@@ -1,6 +1,6 @@
 with payments as (
 
-    select * from "demo_user"."lim_payments"
+    select * from "jaffle_shop"."lim_payments"
 
 ),
 

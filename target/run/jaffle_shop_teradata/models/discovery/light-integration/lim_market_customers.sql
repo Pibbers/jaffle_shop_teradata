@@ -2,14 +2,12 @@
   
 
   
-  REPLACE VIEW "demo_user"."lim_market_customers__dbt_tmp" AS
+  REPLACE VIEW "jaffle_shop"."lim_market_customers__dbt_tmp" AS
     /*
   Build a light integrated modeled layer from source image 
   for entity `market_customers`, performing: 
   - Data domain aligments (eg. using standard data types, units conversions, codes standardization...)
-*/
-
-select
+*/select
 spend,
 nearby5,
 nearby10,

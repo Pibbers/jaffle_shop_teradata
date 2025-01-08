@@ -1,6 +1,17 @@
 
-   insert into "demo_user"."sim_payments" ("id", "order_id", "payment_method", "amount", "last_update_ts")
-        select "id", "order_id", "payment_method", "amount", "last_update_ts"
-        from "demo_user"."sim_payments__dbt_tmp"
+   
+  
+    
     
 
+    INSERT INTO "jaffle_shop"."sim_payments"
+          
+
+-- Source image build for `payments` entity
+
+select source.*
+from "jaffle_shop"."stg_payments" source
+    ;
+  
+
+  

@@ -19,7 +19,7 @@ with source as
 (
   select
   s.*
-  from "demo_user"."sim_customers" s
+  from "jaffle_shop"."sim_customers" s
   where valid_period contains current_timestamp
 )
 select
@@ -33,11 +33,11 @@ select
     ,coalesce(family.customer_key,-1) family_key
 from source s
 --Surrogate key joins
-left join "demo_user"."key_customer" customer
+left join "jaffle_shop"."key_customer" customer
   on customer.customer_nk=coalesce(trim(email), '')
   and customer.domain_cd='retail'
 
-left join "demo_user"."key_customer" family
+left join "jaffle_shop"."key_customer" family
   on family.customer_nk=coalesce(trim(last_name), '')
   and family.domain_cd='families'
 

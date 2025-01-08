@@ -2,10 +2,10 @@
   
 
   
-  REPLACE VIEW "demo_user"."dim_payment_method__dbt_tmp" AS
+  REPLACE VIEW "jaffle_shop"."dim_payment_method__dbt_tmp" AS
     with payments as (
 
-    select * from "demo_user"."lim_payments"
+    select * from "jaffle_shop"."lim_payments"
 
 ),
 

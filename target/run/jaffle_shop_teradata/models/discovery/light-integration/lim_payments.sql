@@ -2,7 +2,7 @@
   
 
   
-  REPLACE VIEW "demo_user"."lim_payments__dbt_tmp" AS
+  REPLACE VIEW "jaffle_shop"."lim_payments__dbt_tmp" AS
     /*
   Build a light integrated modeled layer from source image 
   for entity `payments`, performing: 
@@ -16,5 +16,5 @@ sel
   payment_method,
   --`amount` is currently stored in cents, so we convert it to dollars
   amount / 100 as amount_usd
-  from "demo_user"."sim_payments" s
+  from "jaffle_shop"."sim_payments" s
 

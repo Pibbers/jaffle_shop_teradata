@@ -1,6 +1,6 @@
 with customers as (
     
-    select * from "demo_user"."key_customer"
+    select * from "jaffle_shop"."key_customer"
     where domain_cd in ('retail', 'business')
 
 ),
@@ -12,14 +12,14 @@ customer_orders as (
         min(order_date) as first_order,
         max(order_date) as most_recent_order,
         count(id) as number_of_orders
-    from "demo_user"."lim_orders"
+    from "jaffle_shop"."lim_orders"
     group by 1
 
 ),
 
 customer_lifetime_value as (
      
-    select * from "demo_user"."customer_lifetime_value"
+    select * from "jaffle_shop"."customer_lifetime_value"
     where customer_lifetime_value.valid_period contains current_date
 
 ),
