@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: cloud_storage
-    schema: "demo_user" #This is the database in which our foreign objects reside
+    schema: "jaffle_shop" #This is the database in which our foreign objects reside
     tables:
       - name: raw_market_customers   
         description: "Market data from external provider"

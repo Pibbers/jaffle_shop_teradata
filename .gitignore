@@ -4,5 +4,5 @@ logs/
 __pycache__/
 .DS_Store
 */.DS_Store
+target
 dbt_packages
-target/clear

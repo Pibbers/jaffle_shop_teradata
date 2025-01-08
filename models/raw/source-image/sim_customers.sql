@@ -1,4 +1,4 @@
-{#-
+{#/*-
 Generic source image build from staging table, two blocks:
 1. We use a common macro build_source_image() that
   "mirrors" the structure of the source table, 
@@ -24,16 +24,16 @@ Model Usage:
 Possible further customization: 
   - infer the source table name from the current model name (by simply changing the suffix) in the  build_source_image macro.
   - test the use on_schema_change='sync_all_columns'
--#}
+-*/#}
 
-{#- 
+{#/*- 
 This example uses an incremental "valid_history" strategy to reflect 
 the historical image of the mirrored source system entity.
 This enables us to "go back in time" (in source system time terms) to,
 for example, compute historical metrics or rebuild downstream history without reloading any data.
 This also enables us to handle back-dated corrections from the source systems 
 without having to re-build the entire history forward.
--#}
+-*/#}
 
 {{
   config(
