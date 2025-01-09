@@ -3,10 +3,6 @@ Generic source image build from staging table, two blocks:
 1. We use a common macro build_source_image() that
   "mirrors" the structure of the source table, 
   accounting for history preparation and column filtering, if specified.
-2. The delta logic is directly defined in the model, 
-  based on the nature of the source, however we provide a boilerplate code 
-  for historized and non-historized source images using the project default 
-  "last update timestamp", assuming that it is present in the source tables if set.
 
 Model Usage:
 1. Update the config parameters (all optional):
@@ -47,16 +43,7 @@ without having to re-build the entire history forward.
   )
 }}
 
--- Generic source image build for `{{this.name.split('_', 1)[1]}}` entity
-{{ build_source_image (source_table='stg_customers', config=config) }}
-
-{%- if var('last_update_ts') and is_incremental() and not config.get('disable_delta')-%}
--- Load is incremental and source has a standard record 
--- landing timestamp, so get delta
-where source.{{var('last_update_ts')}} > 
-  {%- if config.get('valid_period') -%}
-    (select max(begin({{config.get('valid_period')}})) from {{this}})
-  {%- else -%}
-    (select max({{var('last_update_ts')}}) from {{this}})
-  {%- endif -%}
-{% endif %}
+with prepared_source_image as ( 
+  {{ build_source_image (source_table='stg_customers', config=config) }}
+)
+select * from prepared_source_image
