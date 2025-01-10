@@ -1,12 +1,8 @@
-{#-
+{#/*-
 Generic source image build from staging table, two blocks:
 1. We use a common macro build_source_image() that
   "mirrors" the structure of the source table, 
   accounting for history preparation and column filtering, if specified.
-2. The delta logic is directly defined in the model, 
-  based on the nature of the source, however we provide a boilerplate code 
-  for historized and non-historized source images using the project default 
-  "last update timestamp", assuming that it is present in the source tables if set.
 
 Model Usage:
 1. Update the config parameters (all optional):
@@ -24,16 +20,16 @@ Model Usage:
 Possible further customization: 
   - infer the source table name from the current model name (by simply changing the suffix) in the  build_source_image macro.
   - test the use on_schema_change='sync_all_columns'
--#}
+-*/#}
 
-{#- 
+{#/*- 
 This example uses an incremental "valid_history" strategy to reflect 
 the historical image of the mirrored source system entity.
 This enables us to "go back in time" (in source system time terms) to,
 for example, compute historical metrics or rebuild downstream history without reloading any data.
 This also enables us to handle back-dated corrections from the source systems 
 without having to re-build the entire history forward.
--#}
+-*/#}
 
 {{
   config(
@@ -47,16 +43,7 @@ without having to re-build the entire history forward.
   )
 }}
 
--- Generic source image build for `{{this.name.split('_', 1)[1]}}` entity
-{{ build_source_image (source_table='stg_customers', config=config) }}
-
-{%- if var('last_update_ts') and is_incremental() and not config.get('disable_delta')-%}
--- Load is incremental and source has a standard record 
--- landing timestamp, so get delta
-where source.{{var('last_update_ts')}} > 
-  {%- if config.get('valid_period') -%}
-    (select max(begin({{config.get('valid_period')}})) from {{this}})
-  {%- else -%}
-    (select max({{var('last_update_ts')}}) from {{this}})
-  {%- endif -%}
-{% endif %}
+with prepared_source_image as ( 
+  {{ build_source_image (source_table='stg_customers', config=config) }}
+)
+select * from prepared_source_image

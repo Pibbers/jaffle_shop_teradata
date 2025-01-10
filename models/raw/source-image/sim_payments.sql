@@ -19,8 +19,6 @@ This example is a simple "append" of new records identified in the staging entit
   )
 }}
 
--- Source image build for `{{this.name.split('_', 1)[1]}}` entity
-
 select source.*
 from {{ref('stg_payments')}} source
 

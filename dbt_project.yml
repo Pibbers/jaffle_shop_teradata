@@ -15,13 +15,6 @@ clean-targets:
     - "dbt_modules"
     - "logs"
 
-models:
-  jaffle_shop:
-      materialized: table
-      staging:
-        materialized: view
-        tags: ["staging", "hourly"]
-
 vars:
   last_update_ts: 'last_update_ts'
 

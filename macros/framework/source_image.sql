@@ -37,5 +37,13 @@ select
 ,period({{ valid_from_value }}, {{ valid_to_value }}) as {{ valid_period }}
 {%- endif %}
 from {{ ref(source_table) }} source
- 
- {% endmacro %}
+{% if var('last_update_ts') and is_incremental() and not config.get('disable_delta') %}
+  {% if config.get('valid_period') %}
+    where source.{{ var('last_update_ts') }} > 
+    (select max(begin({{ config.get('valid_period') }})) from {{ this }})
+  {% else %}
+    where source.{{ var('last_update_ts') }} > 
+    (select max({{ var('last_update_ts') }}) from {{ this }})
+  {% endif %}
+{% endif %}
+{% endmacro %}
